@@ -238,15 +238,6 @@ GO;
 -- 2. Вывести количество лекций, которые читает преподаватель
 -- “Dave McQueen”.
 
-SELECT COUNT(LectureId)
-FROM GroupsLectures
-INNER JOIN Lectures L on L.Id = GroupsLectures.LectureId
-INNER JOIN Teachers T on T.Id = L.TeacherId
-WHERE T.Name = 'Dave' AND T.Surname = 'McQueen';
-GO;
-
--- не поняла имеется ли в виду количество лекций по разным предметам, или по одному предмету но в разных группах тоже, поэтому написала оба
-
 SELECT COUNT(Lectures.Id)
 FROM Lectures
 INNER JOIN Teachers T on T.Id = Lectures.TeacherId
@@ -255,12 +246,6 @@ GO;
 
 -- 3. Вывести количество занятий, проводимых в аудитории
 -- “D201”.
-
-SELECT COUNT(LectureId)
-FROM GroupsLectures
-INNER JOIN Lectures L on L.Id = GroupsLectures.LectureId
-WHERE L.LectureRoom = 'D201';
-GO;
 
 SELECT COUNT(Id)
 FROM Lectures
